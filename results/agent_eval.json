@@ -1,0 +1,68 @@
+{
+ "summary": {
+  "backend": "ScriptedLLM",
+  "cases": 6,
+  "tool_routing": 1.0,
+  "grounded": 1.0,
+  "decision_ok": [
+   true,
+   true,
+   true
+  ],
+  "content_ok": [
+   true,
+   true,
+   true
+  ]
+ },
+ "rows": [
+  {
+   "q": "Should the high_risk client be approved? Explain the decision.",
+   "tools_ok": true,
+   "grounded": true,
+   "decision_ok": true,
+   "content_ok": null,
+   "repairs": 0
+  },
+  {
+   "q": "Should the low_risk client be approved?",
+   "tools_ok": true,
+   "grounded": true,
+   "decision_ok": true,
+   "content_ok": null,
+   "repairs": 0
+  },
+  {
+   "q": "Why is the borderline client declined although the PD looks low? Explain the rule.",
+   "tools_ok": true,
+   "grounded": true,
+   "decision_ok": true,
+   "content_ok": null,
+   "repairs": 0
+  },
+  {
+   "q": "What PSI value triggers a model investigation?",
+   "tools_ok": true,
+   "grounded": true,
+   "decision_ok": null,
+   "content_ok": true,
+   "repairs": 0
+  },
+  {
+   "q": "What is the policy on protected attributes in the fairness audit?",
+   "tools_ok": true,
+   "grounded": true,
+   "decision_ok": null,
+   "content_ok": true,
+   "repairs": 0
+  },
+  {
+   "q": "Define expected credit loss.",
+   "tools_ok": true,
+   "grounded": true,
+   "decision_ok": null,
+   "content_ok": true,
+   "repairs": 0
+  }
+ ]
+}

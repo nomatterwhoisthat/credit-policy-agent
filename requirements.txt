@@ -1,0 +1,14 @@
+torch
+sentence-transformers
+accelerate>=1.1.0
+datasets
+rank_bm25
+langgraph
+langchain-core
+requests
+catboost
+scikit-learn
+pandas
+numpy
+joblib
+pytest

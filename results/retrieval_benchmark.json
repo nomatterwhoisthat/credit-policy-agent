@@ -1,0 +1,182 @@
+{
+  "setup": {
+    "eval_docs": 10206,
+    "test_queries": 648,
+    "finetune_pairs": 3000,
+    "base_model": "BAAI/bge-small-en-v1.5",
+    "cross_encoder": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "note": "corpus subsampled: all test positives + random distractors"
+  },
+  "metrics": [
+    {
+      "method": "BM25",
+      "ndcg@10": 0.3412,
+      "ndcg@10_ci": [
+        0.3141,
+        0.368
+      ],
+      "recall@10": 0.4017,
+      "recall@10_ci": [
+        0.3715,
+        0.433
+      ],
+      "recall@100": 0.6274,
+      "recall@100_ci": [
+        0.5973,
+        0.6557
+      ],
+      "mrr@10": 0.4207,
+      "mrr@10_ci": [
+        0.3864,
+        0.4534
+      ]
+    },
+    {
+      "method": "Dense bge-small",
+      "ndcg@10": 0.5364,
+      "ndcg@10_ci": [
+        0.5087,
+        0.5639
+      ],
+      "recall@10": 0.6061,
+      "recall@10_ci": [
+        0.5761,
+        0.6341
+      ],
+      "recall@100": 0.8386,
+      "recall@100_ci": [
+        0.8164,
+        0.8606
+      ],
+      "mrr@10": 0.6211,
+      "mrr@10_ci": [
+        0.5871,
+        0.6523
+      ]
+    },
+    {
+      "method": "Hybrid BM25+dense (RRF)",
+      "ndcg@10": 0.4691,
+      "ndcg@10_ci": [
+        0.4418,
+        0.4972
+      ],
+      "recall@10": 0.5377,
+      "recall@10_ci": [
+        0.5072,
+        0.5681
+      ],
+      "recall@100": 0.8246,
+      "recall@100_ci": [
+        0.8007,
+        0.8476
+      ],
+      "mrr@10": 0.562,
+      "mrr@10_ci": [
+        0.5296,
+        0.5954
+      ]
+    },
+    {
+      "method": "Hybrid + cross-encoder rerank (top-30)",
+      "ndcg@10": 0.5103,
+      "ndcg@10_ci": [
+        0.4829,
+        0.5376
+      ],
+      "recall@10": 0.5786,
+      "recall@10_ci": [
+        0.5501,
+        0.6074
+      ],
+      "recall@100": 0.8246,
+      "recall@100_ci": [
+        0.8007,
+        0.8476
+      ],
+      "mrr@10": 0.5945,
+      "mrr@10_ci": [
+        0.5622,
+        0.6258
+      ]
+    },
+    {
+      "method": "Dense bge-small fine-tuned",
+      "ndcg@10": 0.5365,
+      "ndcg@10_ci": [
+        0.5091,
+        0.5629
+      ],
+      "recall@10": 0.6076,
+      "recall@10_ci": [
+        0.5775,
+        0.6365
+      ],
+      "recall@100": 0.845,
+      "recall@100_ci": [
+        0.8233,
+        0.8653
+      ],
+      "mrr@10": 0.6214,
+      "mrr@10_ci": [
+        0.5892,
+        0.652
+      ]
+    },
+    {
+      "method": "Hybrid BM25+fine-tuned dense (RRF)",
+      "ndcg@10": 0.4691,
+      "ndcg@10_ci": [
+        0.4409,
+        0.4968
+      ],
+      "recall@10": 0.5314,
+      "recall@10_ci": [
+        0.5019,
+        0.5617
+      ],
+      "recall@100": 0.8344,
+      "recall@100_ci": [
+        0.8113,
+        0.8558
+      ],
+      "mrr@10": 0.5621,
+      "mrr@10_ci": [
+        0.5292,
+        0.595
+      ]
+    }
+  ],
+  "paired_ndcg10_vs_BM25": {
+    "Dense bge-small": {
+      "delta": 0.1953,
+      "ci_lo": 0.1685,
+      "ci_hi": 0.2218,
+      "p": 0.0
+    },
+    "Hybrid BM25+dense (RRF)": {
+      "delta": 0.1279,
+      "ci_lo": 0.1123,
+      "ci_hi": 0.1439,
+      "p": 0.0
+    },
+    "Hybrid + cross-encoder rerank (top-30)": {
+      "delta": 0.1691,
+      "ci_lo": 0.146,
+      "ci_hi": 0.1927,
+      "p": 0.0
+    },
+    "Dense bge-small fine-tuned": {
+      "delta": 0.1954,
+      "ci_lo": 0.169,
+      "ci_hi": 0.2219,
+      "p": 0.0
+    },
+    "Hybrid BM25+fine-tuned dense (RRF)": {
+      "delta": 0.128,
+      "ci_lo": 0.1119,
+      "ci_hi": 0.1443,
+      "p": 0.0
+    }
+  }
+}

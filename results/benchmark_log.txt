@@ -1,0 +1,51 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+eval corpus 10206 docs, 648 test queries, 14166 train pairs
+[   42s] BM25: {'ndcg@10': 0.3412, 'recall@10': 0.4017, 'recall@100': 0.6274, 'mrr@10': 0.4207}
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3100.59it/s]
+[   50s] Dense bge-small: {'ndcg@10': 0.5364, 'recall@10': 0.6061, 'recall@100': 0.8386, 'mrr@10': 0.6211}
+[   50s] Hybrid BM25+dense (RRF): {'ndcg@10': 0.4691, 'recall@10': 0.5377, 'recall@100': 0.8246, 'mrr@10': 0.562}
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 2870.26it/s]
+[  814s] Hybrid + cross-encoder rerank (top-30): {'ndcg@10': 0.5103, 'recall@10': 0.5786, 'recall@100': 0.8246, 'mrr@10': 0.5945}
+/home/claude/credit-policy-agent/experiments/run_retrieval_benchmark.py:57: DeprecationWarning: Importing from 'sentence_transformers.losses' is deprecated and will be removed in a future version. Please use 'sentence_transformers.sentence_transformer.losses' instead.
+  from sentence_transformers import InputExample, losses
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8915.19it/s]
+[  816s] fine-tuning on 3000 pairs, 93 steps
+Computing widget examples:   0%|          | 0/1 [00:00<?, ?example/s]                                                                     /usr/local/lib/python3.13/dist-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+{'train_runtime': '545.8', 'train_samples_per_second': '5.452', 'train_steps_per_second': '0.17', 'train_loss': '0.951', 'epoch': '1'}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 22.53it/s]
+[ 1856s] Dense bge-small fine-tuned: {'ndcg@10': 0.5365, 'recall@10': 0.6076, 'recall@100': 0.845, 'mrr@10': 0.6214}
+[ 1856s] Hybrid BM25+fine-tuned dense (RRF): {'ndcg@10': 0.4691, 'recall@10': 0.5314, 'recall@100': 0.8344, 'mrr@10': 0.5621}
+{
+ "Dense bge-small": {
+  "delta": 0.1953,
+  "ci_lo": 0.1685,
+  "ci_hi": 0.2218,
+  "p": 0.0
+ },
+ "Hybrid BM25+dense (RRF)": {
+  "delta": 0.1279,
+  "ci_lo": 0.1123,
+  "ci_hi": 0.1439,
+  "p": 0.0
+ },
+ "Hybrid + cross-encoder rerank (top-30)": {
+  "delta": 0.1691,
+  "ci_lo": 0.146,
+  "ci_hi": 0.1927,
+  "p": 0.0
+ },
+ "Dense bge-small fine-tuned": {
+  "delta": 0.1954,
+  "ci_lo": 0.169,
+  "ci_hi": 0.2219,
+  "p": 0.0
+ },
+ "Hybrid BM25+fine-tuned dense (RRF)": {
+  "delta": 0.128,
+  "ci_lo": 0.1119,
+  "ci_hi": 0.1443,
+  "p": 0.0
+ }
+}
+total seconds 1856

@@ -1,0 +1,8 @@
+[
+ {"q": "Should the high_risk client be approved? Explain the decision.", "tools": ["score_applicant", "search_knowledge"], "decision": "decline"},
+ {"q": "Should the low_risk client be approved?", "tools": ["score_applicant"], "decision": "approve"},
+ {"q": "Why is the borderline client declined although the PD looks low? Explain the rule.", "tools": ["score_applicant", "search_knowledge"], "decision": "decline"},
+ {"q": "What PSI value triggers a model investigation?", "tools": ["search_knowledge"], "must_contain": "0.25"},
+ {"q": "What is the policy on protected attributes in the fairness audit?", "tools": ["search_knowledge"], "must_contain": "SEX"},
+ {"q": "Define expected credit loss.", "tools": ["search_knowledge"], "must_contain": "PD"}
+]
